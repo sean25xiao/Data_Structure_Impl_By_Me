@@ -1,2 +1,2 @@
 language = "cpp"
-run = "g++ ./linked_lists/main.cpp -o ./linked_lists/linked_lists_main && ./linked_lists/linked_lists_main"
+run = "g++ ./linked_lists/main.cpp ./linked_lists/linked_lists.cpp -o ./linked_lists/linked_lists_main && ./linked_lists/linked_lists_main"

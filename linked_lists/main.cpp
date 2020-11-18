@@ -6,8 +6,10 @@ using namespace std;
 int main () {
 
   MyLinkedLists mll;
-  //cout << (mll.head)->val << endl;
-  cout << "Hi Yibang" << endl;
+  mll.AddNodeAtBegin(9);
+  cout << "Hi Yibang1" << endl;
+  cout << mll.get_head_val() << endl;
+  cout << "Hi Yibang2" << endl;
 
   return 0;
 }
