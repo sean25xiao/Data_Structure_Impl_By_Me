@@ -43,3 +43,14 @@ void MyLinkedLists::AddNodeAtEnd(int val) {
     AddNodeAtBegin(val);
   }
 };
+
+// ================================
+bool MyLinkedLists::OnlyOneNode() {
+// ================================
+
+  /// Note: When there is only one node, both head and tail points to the node
+  if (head == tail)
+    return true;
+  else
+    return false;
+}

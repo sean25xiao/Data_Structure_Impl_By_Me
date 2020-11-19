@@ -30,6 +30,8 @@ public:
 
   void AddNodeAtEnd(int val);
 
+  bool OnlyOneNode();
+
 friend Node;
 };
 
