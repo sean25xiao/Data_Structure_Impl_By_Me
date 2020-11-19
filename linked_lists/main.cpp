@@ -7,6 +7,7 @@ int main () {
 
   MyLinkedLists mll;
   mll.AddNodeAtBegin(9);
+  mll.AddNodeAtEnd(25);
   cout << "Hi Yibang1" << endl;
   cout << mll.get_head_val() << endl;
   cout << "Hi Yibang2" << endl;

@@ -24,7 +24,11 @@ public:
 
   int get_head_val() { return head->val; };
 
+  int get_tail_val() { return tail->val; };
+
   void AddNodeAtBegin(int val);
+
+  void AddNodeAtEnd(int val);
 
 friend Node;
 };
