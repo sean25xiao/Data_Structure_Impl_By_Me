@@ -4,14 +4,17 @@
 // ================================
 void MyLinkedLists::AddNodeAtBegin(int val) {
 // ================================
+
+  /// Step 1 - Create a new node and link the next pointer field to the old head pointer
   Node *tmp = new Node;
   tmp->val = val;
-  tmp->next = NULL;
+  tmp->next = head;
+
+  /// Step 2 - Link the head pointer to this new node
   head = tmp;
 
-  /// If this added node is the first one in list, assign tail to this node, otherwise skip this
-  Node *current = new Node;
-  if (current->next == NULL)
+  /// Step 3 - If this added node is the first one in list, assign tail to this node, otherwise skip this
+  if (tmp->next == NULL)
      tail = tmp;
 };
 
@@ -52,5 +55,15 @@ bool MyLinkedLists::OnlyOneNode() {
   if (head == tail)
     return true;
   else
+    return false;
+};
+
+// ================================
+bool MyLinkedLists::IsEmpty() {
+// ================================
+
+  if ((head == NULL) && (tail == NULL))
+    return true;
+  else 
     return false;
 }

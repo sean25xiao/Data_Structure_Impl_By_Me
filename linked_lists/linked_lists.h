@@ -32,6 +32,8 @@ public:
 
   bool OnlyOneNode();
 
+  bool IsEmpty();
+
 friend Node;
 };
 
