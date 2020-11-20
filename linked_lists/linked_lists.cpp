@@ -87,4 +87,30 @@ void MyLinkedLists::PrintList() {
   cout << "NULL" << endl;
 
   return;
+};
+
+// ================================
+void MyLinkedLists::ReverseList() {
+// ================================
+  /// Step 1 - Check is the list empty?
+  if (head == NULL) {
+    cout << "ReverseList: The list is empty" << endl;
+    return;
+  }
+  
+  /// Step 2 - If not empty, declare three pointers: current, prev, and beyond
+  Node *current = head;
+  Node *prev = NULL;
+  Node *beyond = NULL; // Note: Didn't use next because it will be confused with current->next
+
+  /// Step 3 - Start the process of reverse the list
+  tail = current;   /// Step 3.1 - Assign the head node to tail node
+  while (current != NULL) { /// Note: don't use current->next != NULL, otherwise it will skipp the last node so the last node will get lost
+    beyond = current->next; /// Step 3.2 - Store next node to beyond
+    current->next = prev; /// Step 3.3 - Set current node's next ptr to previous node
+    prev = current; /// Step 3.4 - Move prev ptr to current node for next iteration
+    current = beyond; /// Step 3.5 - Move current ptr to beyond ptr for next iteration
+  }
+  head = prev; /// Step 3.6 - Now current ptr is pointing to NULL, the prev ptr is pointing to the "last node", which is the head node is the reversed list
+  return;
 }

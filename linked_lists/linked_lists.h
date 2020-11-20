@@ -36,6 +36,8 @@ public:
 
   void PrintList();
 
+  void ReverseList();
+
 friend Node;
 };
 

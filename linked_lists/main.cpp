@@ -26,6 +26,8 @@ int main () {
     cout << "List is empty!" << endl;
 
   mll.PrintList();
+  mll.ReverseList();
+  mll.PrintList();
 
   return 0;
 }
