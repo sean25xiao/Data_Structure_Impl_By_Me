@@ -1,6 +1,8 @@
 #include <iostream>
 #include "linked_lists.h"
 
+using namespace std;
+
 // ================================
 void MyLinkedLists::AddNodeAtBegin(int val) {
 // ================================
@@ -66,4 +68,23 @@ bool MyLinkedLists::IsEmpty() {
     return true;
   else 
     return false;
+};
+
+// ================================
+void MyLinkedLists::PrintList() {
+// ================================
+
+  if (head == NULL) {
+    cout << "PrintList: The list is empty" << endl;
+    return;
+  }
+
+  Node *current = head;
+  while (current != NULL) {
+    cout << current->val << " -> ";
+    current = current->next;
+  }
+  cout << "NULL" << endl;
+
+  return;
 }

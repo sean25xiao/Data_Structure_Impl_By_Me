@@ -34,6 +34,8 @@ public:
 
   bool IsEmpty();
 
+  void PrintList();
+
 friend Node;
 };
 
