@@ -8,6 +8,7 @@ void MyLinkedLists::AddNodeAtBegin(int val) {
 // ================================
 
   /// Step 1 - Create a new node and link the next pointer field to the old head pointer
+  cout << "AddNodeAtBegin Called" << endl;
   Node *tmp = new Node;
   tmp->val = val;
   tmp->next = head;
@@ -26,6 +27,7 @@ void MyLinkedLists::AddNodeAtEnd(int val) {
   /// Step 1 - Seperate two cases: 
   ///         1. If there is no node in list, then AddNodeAtEnd is AddNodeAtBegin
   ///         2. If there are some nodes, then go to Step 2
+  cout << "AddNodeAtEnd Called" << endl;
   if (head != NULL) {
 
     /// Step 2 - Create a new node, assign val and NULL to next pointer
@@ -54,8 +56,10 @@ bool MyLinkedLists::OnlyOneNode() {
 // ================================
 
   /// Note: When there is only one node, both head and tail points to the node
-  if (head == tail)
+  if (head == tail) {
+    cout << "Only One Node in the list" << endl;
     return true;
+  }
   else
     return false;
 };
