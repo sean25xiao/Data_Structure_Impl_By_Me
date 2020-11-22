@@ -118,3 +118,15 @@ void MyLinkedLists::ReverseList() {
   head = prev; /// Step 3.6 - Now current ptr is pointing to NULL, the prev ptr is pointing to the "last node", which is the head node is the reversed list
   return;
 }
+
+void MyLinkedLists::DeleteNodeAtBegin() {
+  if (head == NULL) {
+    cout << "DeleteNodeAtBegin: The list is empty" << endl;
+    return;
+  }
+
+  Node *tmp = head;
+  head = tmp->next;
+  delete(tmp);
+  return;
+}

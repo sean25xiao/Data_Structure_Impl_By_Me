@@ -36,6 +36,10 @@ int main () {
         mll.AddNodeAtEnd(val);
         break;
 
+      case 4:
+        mll.DeleteNodeAtBegin();
+        break;
+
       case 7:
         mll.ReverseList();
         break;

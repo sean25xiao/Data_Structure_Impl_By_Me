@@ -28,6 +28,8 @@ public:
 
   void AddNodeAtBegin(int val);
 
+  void DeleteNodeAtBegin();
+
   void AddNodeAtEnd(int val);
 
   bool OnlyOneNode();
