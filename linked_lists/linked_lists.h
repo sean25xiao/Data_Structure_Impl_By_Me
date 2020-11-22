@@ -32,6 +32,8 @@ public:
 
   void AddNodeAtEnd(int val);
 
+  void DeleteNodeAtEnd();
+
   bool OnlyOneNode();
 
   bool IsEmpty();

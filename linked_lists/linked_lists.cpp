@@ -119,7 +119,9 @@ void MyLinkedLists::ReverseList() {
   return;
 }
 
+// ================================
 void MyLinkedLists::DeleteNodeAtBegin() {
+// ================================
   if (head == NULL) {
     cout << "DeleteNodeAtBegin: The list is empty" << endl;
     return;
@@ -128,5 +130,32 @@ void MyLinkedLists::DeleteNodeAtBegin() {
   Node *tmp = head;
   head = tmp->next;
   delete(tmp);
+  return;
+}
+
+// ================================
+void MyLinkedLists::DeleteNodeAtEnd() {
+// ================================
+  if (head == NULL) {
+    cout << "DeleteNodeAtEnd: The list is empty" << endl;
+    return;
+  }
+
+  if (OnlyOneNode()){
+    Node *tmp;
+    tmp = head;
+    head = NULL;
+    tail = NULL;
+    delete(tmp);
+    return;
+  }
+
+  Node *current = head;
+  while (current->next->next != NULL) {
+    current = current->next;
+  }
+  tail = current;
+  current->next = NULL;
+  delete(current->next);
   return;
 }

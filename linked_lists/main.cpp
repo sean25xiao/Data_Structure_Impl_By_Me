@@ -40,6 +40,10 @@ int main () {
         mll.DeleteNodeAtBegin();
         break;
 
+      case 6:
+        mll.DeleteNodeAtEnd();
+        break;
+
       case 7:
         mll.ReverseList();
         break;
