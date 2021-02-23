@@ -1,2 +1,11 @@
 language = "cpp"
-run = "g++ ./linked_lists/main.cpp ./linked_lists/linked_lists.cpp -o ./linked_lists/linked_lists_main && ./linked_lists/linked_lists_main"
+
+# For linked_lists
+# run = "g++ ./linked_lists/main.cpp ./linked_lists/linked_lists.cpp -o ./linked_lists/linked_lists_main && ./linked_lists/linked_lists_main"
+
+# For Stack
+run = "g++ ./stack/main.cpp ./stack/stack.cpp -o ./stack/stack_main && ./stack/stack_main"
+
+# For Binary Tree
+
+# For Quick Sort
