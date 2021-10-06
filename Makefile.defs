@@ -1,0 +1,10 @@
+CC = gcc
+CXX = g++
+
+SRCDIR += linked_lists
+
+OBJDIR = obj
+
+CLEAN_DIRS += $(OBJDIR)
+CLEAN_FILES += *.o
+CLEAN_FILES += *.log
