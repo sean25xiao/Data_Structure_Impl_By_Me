@@ -31,9 +31,9 @@ public:
   void printStack();
   void push(int val);
   void pop();
-  void peek();
-  bool isEmpty();
-  bool isFull();
+  int  top();     // return the top of stack without deleting it
+  bool isEmpty() { return (_contents.empty() ? true : false); };
+  //bool isFull();
 
 private:
   vector<int> _contents;

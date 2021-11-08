@@ -14,5 +14,10 @@ void c_MyStack::push(int val) {
 }
 
 void c_MyStack::pop() {
+  _contents.pop_back();
+}
 
+int c_MyStack::top() {
+  auto idx = _contents.size() - 1;
+  return _contents[idx];
 }
