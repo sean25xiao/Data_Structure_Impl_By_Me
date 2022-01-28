@@ -2,34 +2,52 @@ CXX=g++
 CXXFLAGS=-Werror -std=c++17
 CXXPREP=-c
 
-TOP ?= ./       # current project directory
+# current project directory
+TOP ?= ./
 
-OBJDIR = obj
+# ./obj
+OBJDIR = $(TOP)obj
+# ./ds_src
+DS_SRC_DIR=$(TOP)ds_src
+# ./tests
+DS_TST_DIR=$(TOP)tests
 
 CLEAN_DIRS+=$(OBJDIR)
 CLEAN_FILES+=*.o
 CLEAN_FILES+=*.log
 
-INCLUDES+=-Ids_src
+#INCLUDES+=-Ids_src
 
-# include $(TOP)/Makefile.defs
+DS_NAME+=binary_tree
+# binary_tree_test
+DS_TEST_NAME+=$(addsuffix _test, $(DS_NAME))
 
-all:
+# binary_tree.cpp
+DS_SRC_NAME=$(addsuffix .cpp, $(DS_NAME))
+# binary_tree.o
+DS_OBJ_NAME=$(addsuffix .o, $(DS_NAME))
 
-obj/stack_test: obj/stack.o obj/stack_test.o
+# binary_tree_test.cpp
+DS_TEST_SRC_NAME=$(addsuffix .cpp, $(DS_TEST_NAME))
+# binary_tree_test.o
+DS_TEST_OBJ_NAME=$(addsuffix .o, $(DS_TEST_NAME))
+
+
+all: build_obj $(OBJDIR)/$(DS_NAME)
+
+$(OBJDIR)/$(DS_NAME): $(OBJDIR)/$(DS_OBJ_NAME) $(OBJDIR)/$(DS_TEST_OBJ_NAME)
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
-obj/stack_test.o: tests/stack_test.cpp
-	$(CXX) $(CXXPREP) $(CXXFLAGS) $(INCLUDES) $^ -o $@
+$(OBJDIR)/$(DS_TEST_OBJ_NAME): $(DS_TST_DIR)/$(DS_TEST_SRC_NAME)
+	$(CXX) $(CXXPREP) $(CXXFLAGS) $^ -o $@
 
-obj/stack.o: ds_src/stack.cpp
-	$(CXX) $(CXXPREP) $(CXXFLAGS) $(INCLUDES) $^ -o $@
+$(OBJDIR)/$(DS_OBJ_NAME): $(DS_SRC_DIR)/$(DS_SRC_NAME)
+	$(CXX) $(CXXPREP) $(CXXFLAGS) $^ -o $@
 
-obj/linked_lists_test: obj/linked_lists.o obj/linked_lists_test.o
-	$(CXX) $(CXXFLAGS) $^ -o $@
+.PHONY: build_obj
+build_obj:
+	@mkdir -p obj/
 
-obj/linked_lists_test.o: tests/linked_lists_test.cpp
-	$(CXX) $(CXXPREP) $(CXXFLAGS) $(INCLUDES) $^ -o $@
-
-obj/linked_lists.o: ds_src/linked_lists.cpp
-	$(CXX) $(CXXPREP) $(CXXFLAGS) $(INCLUDES) $^ -o $@
+.PHONY: clean
+clean:
+	rm -rf $(CLEAN_DIRS) $(CLEAN_FILES)
