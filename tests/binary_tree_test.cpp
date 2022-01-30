@@ -8,9 +8,13 @@ int main () {
 
     int input[15] = {1, 2, 4, -1, -1, 5, 7, -1, -1, -1, 3, -1, 6, -1, -1};
 
-    node_t *my_root = createBinaryTree(input);
+    MyBinaryTree bt1;
+    bt1.createBinaryTree(input);
+    bt1.preorderTraversal(bt1.getRoot());
 
-    printBT(my_root);
+    cout << endl;
+
+    bt1.printRoot();
 
     cout << endl;
 

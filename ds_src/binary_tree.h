@@ -5,8 +5,6 @@
 
 struct node_t;
 class MyBinaryTree;
-node_t *createBinaryTree(int array_in[]);
-void printBT(node_t *node_in);
 
 struct node_t {
   int val;
@@ -23,12 +21,22 @@ struct node_t {
 class MyBinaryTree {
 private:
   node_t *root;
+  int idx;
 
 public:
   /// MyBinaryTree Default Constructor
   MyBinaryTree() {
     root = NULL;
+    idx = 0;
   }
+
+  node_t *createBinaryTree(int array_in[]);
+
+  void printRoot();
+  
+  node_t *getRoot() { return root; };
+
+  void preorderTraversal(node_t *node_in);
 
 
   void InsertNode(int val);

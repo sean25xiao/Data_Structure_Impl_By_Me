@@ -3,33 +3,62 @@
 
 using namespace std;
 
-int idx_global = 0;
+// ================================
+node_t *MyBinaryTree::createBinaryTree(int array_in[]){
+// ================================
 
-node_t *createBinaryTree(int array_in[]){
-  node_t *current = new node_t(array_in[idx_global]);
-  if (current->val == -1) { cout << "array_inx[" << idx_global << "] is stored as NULL" << endl; return NULL; };
-  cout << "array_inx[" << idx_global << "] is stored as " << current->val << endl;
+  /// Step 1 - allocate a new node space for current node
+  node_t *current = new node_t(array_in[idx]);
+
+  /// Step 2 - if it is the first time, then this node is the node
+  if (idx == 0) { root = current; };
+
+  /// Step 3 - check the number: -1 means it is NULL
+  if (current->val == -1) { cout << "array_inx[" << idx << "] is stored as NULL" << endl; return NULL; };
+  cout << "array_inx[" << idx << "] is stored as " << current->val << endl;
   
-  idx_global++;
+  /// Step 4 - increment the index, and recursivily call createBinaryTree for left child, next time it will read array_in[idx+1]
+  idx++;
   current->left  = createBinaryTree(array_in);
   
-  idx_global++;
+  /// Step 5 - increment the index, and recursivily call createBinaryTree for right child, next time it will read array_in[idx+1]
+  idx++;
   current->right = createBinaryTree(array_in);
 
+  /// Step 6 - if this node does not have any left nor right children, return its address to upper call
   return current;
 };
 
-void printBT(node_t *node_in) {
-  node_t *current = node_in;
+// ================================
+void MyBinaryTree::printRoot() {
+// ================================
+  cout << "======== printRoot =============" << endl;
+
+  cout << "root's value is " << root->val << endl;
+  cout << "root's left  child is " << root->left->val << endl;
+  cout << "root's right child is " << root->right->val << endl;
+
+  cout << "======== printRoot Ends ========" << endl;
+}
+
+// ================================
+void MyBinaryTree::preorderTraversal(node_t *node_in) {
+// ================================
+  node_t *current = NULL;
+  if (idx == 0)
+    current = root;
+  else
+    current = node_in;
+
   cout << current->val << ", ";
   if (current->left != NULL) { 
-    printBT(current->left);
+    preorderTraversal(current->left);
   } else {
     cout << "N" << ", ";
   }
 
   if (current->right != NULL) { 
-    printBT(current->right); 
+    preorderTraversal(current->right); 
   } else {
     cout << "N" << ", ";
   }

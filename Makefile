@@ -18,7 +18,11 @@ CLEAN_FILES+=*.log
 
 #INCLUDES+=-Ids_src
 
+#DS_NAME+=linked_lists
 DS_NAME+=binary_tree
+
+
+
 # binary_tree_test
 DS_TEST_NAME+=$(addsuffix _test, $(DS_NAME))
 
@@ -33,7 +37,7 @@ DS_TEST_SRC_NAME=$(addsuffix .cpp, $(DS_TEST_NAME))
 DS_TEST_OBJ_NAME=$(addsuffix .o, $(DS_TEST_NAME))
 
 
-all: build_obj $(OBJDIR)/$(DS_NAME)
+all: $(OBJDIR)/$(DS_NAME)
 
 $(OBJDIR)/$(DS_NAME): $(OBJDIR)/$(DS_OBJ_NAME) $(OBJDIR)/$(DS_TEST_OBJ_NAME)
 	$(CXX) $(CXXFLAGS) $^ -o $@
@@ -41,8 +45,8 @@ $(OBJDIR)/$(DS_NAME): $(OBJDIR)/$(DS_OBJ_NAME) $(OBJDIR)/$(DS_TEST_OBJ_NAME)
 $(OBJDIR)/$(DS_TEST_OBJ_NAME): $(DS_TST_DIR)/$(DS_TEST_SRC_NAME)
 	$(CXX) $(CXXPREP) $(CXXFLAGS) $^ -o $@
 
-$(OBJDIR)/$(DS_OBJ_NAME): $(DS_SRC_DIR)/$(DS_SRC_NAME)
-	$(CXX) $(CXXPREP) $(CXXFLAGS) $^ -o $@
+$(OBJDIR)/$(DS_OBJ_NAME): $(DS_SRC_DIR)/$(DS_SRC_NAME) build_obj
+	$(CXX) $(CXXPREP) $(CXXFLAGS) $< -o $@
 
 .PHONY: build_obj
 build_obj:
