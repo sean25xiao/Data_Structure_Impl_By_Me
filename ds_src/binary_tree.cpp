@@ -44,74 +44,52 @@ void MyBinaryTree::printRoot() {
 // ================================
 void MyBinaryTree::preorderTraversal(node_t *node_in) {
 // ================================
-  node_t *current = NULL;
-  if (idx == 0)
-    current = root;
-  else
-    current = node_in;
 
-  cout << current->val << ", ";
-  if (current->left != NULL) { 
-    preorderTraversal(current->left);
-  } else {
+  if (node_in == NULL) {
     cout << "N" << ", ";
+    return;
   }
 
-  if (current->right != NULL) { 
-    preorderTraversal(current->right); 
-  } else {
-    cout << "N" << ", ";
-  }
+  cout << node_in->val << ", ";
+  preorderTraversal(node_in->left);
+  preorderTraversal(node_in->right);
 
   return;
 }
 
+// ================================
 void MyBinaryTree::inorderTraversal(node_t *node_in) {
+// ================================
 
-  node_t *current = NULL;
-  if (idx == 0)
-    current = root;
-  else
-    current = node_in;
-
-  if (current->left != NULL) {
-    inorderTraversal(current->left);
-  } else {
+  if (node_in == NULL) {
     cout << "N" << ", ";
+    return;
   }
 
-  cout << current->val << ", ";
-
-  if (current->right != NULL) {
-    inorderTraversal(current->right);
-  } else {
-    cout << "N" << ", ";
-  }
+  inorderTraversal(node_in->left);
+  cout << node_in->val << ", ";
+  inorderTraversal(node_in->right);
 
   // if all both children are NULL (also means reach the bottom leaf)
+  return;
+}
+
+// ================================
+void MyBinaryTree::postTraversal(node_t *node_in) {
+// ================================
+
+  if (node_in == NULL) {
+    cout << "N" << ", ";
+    return;
+  }
+
+  postTraversal(node_in->left);
+  postTraversal(node_in->right);
+  cout << node_in->val << ", ";
+  
   return;
 }
 
 void MyBinaryTree::InsertNode(int val) {
 
 }
-
-void MyBinaryTree::Traversal_InOrder() {
-  node_t *current = root;
-  node_t *previous = NULL;
-  if (current == NULL) {
-    printf("Please initialize the tree first! \n");
-  }
-  else {
-    while (current->left != NULL) {
-      previous = current;
-      current  = current->left;
-    }
-    // Then it reaches the most left child
-
-  }
-
-
-}
-
-// ===============================

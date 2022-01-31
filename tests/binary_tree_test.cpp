@@ -21,5 +21,9 @@ int main () {
     bt1.inorderTraversal(bt1.getRoot());
     cout << endl;
 
+    cout << endl;
+    bt1.postTraversal(bt1.getRoot());
+    cout << endl;
+
     return 0;
 }

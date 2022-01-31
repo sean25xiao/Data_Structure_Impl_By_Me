@@ -36,16 +36,20 @@ public:
   
   node_t *getRoot() { return root; };
 
+  // Root, Left, Right
+  // ---------------->
   void preorderTraversal(node_t *node_in);
 
+  // Left, Root, Right
+  // ---------------->
   void inorderTraversal(node_t *node_in);
+
+  // Left, Right, Root
+  // ---------------->
+  void postTraversal(node_t *node_in);
 
 
   void InsertNode(int val);
-
-
-  void Traversal_InOrder();
-
 };
 
 #endif // #define _BINARY_TREE_
