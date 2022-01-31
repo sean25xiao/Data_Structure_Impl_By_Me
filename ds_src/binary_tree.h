@@ -38,6 +38,8 @@ public:
 
   void preorderTraversal(node_t *node_in);
 
+  void inorderTraversal(node_t *node_in);
+
 
   void InsertNode(int val);
 

@@ -66,6 +66,32 @@ void MyBinaryTree::preorderTraversal(node_t *node_in) {
   return;
 }
 
+void MyBinaryTree::inorderTraversal(node_t *node_in) {
+
+  node_t *current = NULL;
+  if (idx == 0)
+    current = root;
+  else
+    current = node_in;
+
+  if (current->left != NULL) {
+    inorderTraversal(current->left);
+  } else {
+    cout << "N" << ", ";
+  }
+
+  cout << current->val << ", ";
+
+  if (current->right != NULL) {
+    inorderTraversal(current->right);
+  } else {
+    cout << "N" << ", ";
+  }
+
+  // if all both children are NULL (also means reach the bottom leaf)
+  return;
+}
+
 void MyBinaryTree::InsertNode(int val) {
 
 }

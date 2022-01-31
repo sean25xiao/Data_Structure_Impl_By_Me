@@ -18,5 +18,8 @@ int main () {
 
     cout << endl;
 
+    bt1.inorderTraversal(bt1.getRoot());
+    cout << endl;
+
     return 0;
 }

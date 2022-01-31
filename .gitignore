@@ -2,3 +2,5 @@
 obj/
 *.out
 *.swp
+.vscode
+.vscode/*
