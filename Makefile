@@ -1,57 +1,21 @@
-CXX=g++
-CXXFLAGS=-Werror -std=c++17
-CXXPREP=-c
+all: test-linked_lists test-binary_tree
 
-# current project directory
-TOP ?= ./
+.PHONY: test-linked_lists
+test-linked_lists:
+	mkdir -p ./obj
+	g++ -Werror -std=c++17 -c ./ds_src/linked_lists.cpp -o ./obj/linked_lists.o
+	g++ -Werror -std=c++17 -c ./tests/linked_lists_test.cpp -o ./obj/linked_lists_test.o
+	g++ -Werror -std=c++17 ./obj/linked_lists_test.o ./obj/linked_lists.o -o ./obj/linked_lists
+	./obj/linked_lists
 
-# ./obj
-OBJDIR = $(TOP)obj
-# ./ds_src
-DS_SRC_DIR=$(TOP)ds_src
-# ./tests
-DS_TST_DIR=$(TOP)tests
-
-CLEAN_DIRS+=$(OBJDIR)
-CLEAN_FILES+=*.o
-CLEAN_FILES+=*.log
-
-#INCLUDES+=-Ids_src
-
-#DS_NAME+=linked_lists
-DS_NAME+=binary_tree
-
-
-
-# binary_tree_test
-DS_TEST_NAME+=$(addsuffix _test, $(DS_NAME))
-
-# binary_tree.cpp
-DS_SRC_NAME=$(addsuffix .cpp, $(DS_NAME))
-# binary_tree.o
-DS_OBJ_NAME=$(addsuffix .o, $(DS_NAME))
-
-# binary_tree_test.cpp
-DS_TEST_SRC_NAME=$(addsuffix .cpp, $(DS_TEST_NAME))
-# binary_tree_test.o
-DS_TEST_OBJ_NAME=$(addsuffix .o, $(DS_TEST_NAME))
-
-
-all: $(OBJDIR)/$(DS_NAME)
-
-$(OBJDIR)/$(DS_NAME): $(OBJDIR)/$(DS_OBJ_NAME) $(OBJDIR)/$(DS_TEST_OBJ_NAME)
-	$(CXX) $(CXXFLAGS) $^ -o $@
-
-$(OBJDIR)/$(DS_TEST_OBJ_NAME): $(DS_TST_DIR)/$(DS_TEST_SRC_NAME)
-	$(CXX) $(CXXPREP) $(CXXFLAGS) $^ -o $@
-
-$(OBJDIR)/$(DS_OBJ_NAME): $(DS_SRC_DIR)/$(DS_SRC_NAME) build_obj
-	$(CXX) $(CXXPREP) $(CXXFLAGS) $< -o $@
-
-.PHONY: build_obj
-build_obj:
-	@mkdir -p obj/
+.PHONY: test-binary_tree
+test-binary_tree:
+	mkdir -p ./obj
+	g++ -Werror -std=c++17 -c ./ds_src/binary_tree.cpp -o ./obj/binary_tree.o
+	g++ -Werror -std=c++17 -c ./tests/binary_tree_test.cpp -o ./obj/binary_tree_test.o
+	g++ -Werror -std=c++17 ./obj/binary_tree_test.o ./obj/binary_tree.o -o ./obj/binary_tree
+	./obj/binary_tree
 
 .PHONY: clean
 clean:
-	rm -rf $(CLEAN_DIRS) $(CLEAN_FILES)
+	rm -rf ./obj *.log *.o *.out
