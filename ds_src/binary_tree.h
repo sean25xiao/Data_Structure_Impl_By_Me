@@ -46,7 +46,9 @@ public:
 
   // Left, Right, Root
   // ---------------->
-  void postTraversal(node_t *node_in);
+  void postorderTraversal(node_t *node_in);
+
+  void levelorderTraversal(node_t *node_in);
 
 
   void InsertNode(int val);

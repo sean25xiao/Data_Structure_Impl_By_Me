@@ -22,7 +22,7 @@ int main () {
     cout << endl;
 
     cout << endl;
-    bt1.postTraversal(bt1.getRoot());
+    bt1.postorderTraversal(bt1.getRoot());
     cout << endl;
 
     return 0;

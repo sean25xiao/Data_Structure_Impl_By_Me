@@ -75,7 +75,7 @@ void MyBinaryTree::inorderTraversal(node_t *node_in) {
 }
 
 // ================================
-void MyBinaryTree::postTraversal(node_t *node_in) {
+void MyBinaryTree::postorderTraversal(node_t *node_in) {
 // ================================
 
   if (node_in == NULL) {
@@ -83,11 +83,21 @@ void MyBinaryTree::postTraversal(node_t *node_in) {
     return;
   }
 
-  postTraversal(node_in->left);
-  postTraversal(node_in->right);
+  postorderTraversal(node_in->left);
+  postorderTraversal(node_in->right);
   cout << node_in->val << ", ";
   
   return;
+}
+
+// ================================
+void MyBinaryTree::levelorderTraversal(node_t *node_in) {
+// ================================
+  if (node_in == NULL)
+    return;
+
+  cout << node_in->val << endl;
+  
 }
 
 void MyBinaryTree::InsertNode(int val) {
