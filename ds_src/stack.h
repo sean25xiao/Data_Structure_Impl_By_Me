@@ -33,6 +33,7 @@ public:
   void pop();
   int  top();     // return the top of stack without deleting it
   bool isEmpty() { return (_contents.empty() ? true : false); };
+  int  getSize() { return _contents.size(); }
   //bool isFull();
 
 private:

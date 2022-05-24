@@ -1,5 +1,13 @@
 all: test-linked_lists test-binary_tree
 
+.PHONY: test-stack
+test-stack:
+	mkdir -p ./obj
+	g++ -Werror -std=c++17 -c ./ds_src/stack.cpp -o ./obj/stack.o
+	g++ -Werror -std=c++17 -c ./tests/stack_test.cpp -o ./obj/stack_test.o
+	g++ -Werror -std=c++17 ./obj/stack_test.o ./obj/stack.o -o ./obj/stack
+	./obj/stack
+
 .PHONY: test-linked_lists
 test-linked_lists:
 	mkdir -p ./obj
