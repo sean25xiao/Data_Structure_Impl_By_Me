@@ -31,6 +31,14 @@ void c_MySorter::print_out_vec() const
     cout << endl;
 }
 
+// function to swap elements
+void c_MySorter::swap(int* _pa, int* _pb)
+{
+  int t = *_pa;
+  *_pa = *_pb;
+  *_pb = t;
+}
+
 /*
  * https://www.programiz.com/dsa/bubble-sort
  * Bubble Sort is like moving the larger number to the front like a bubble
@@ -55,7 +63,49 @@ void c_MySorter::bubble_sort()
     output_vec = input_vec;
 }
 
+/*
+ * https://www.khanacademy.org/computing/computer-science/algorithms/quick-sort/a/analysis-of-quicksort
+ * https://www.programiz.com/dsa/quick-sort
+ * https://www.youtube.com/watch?v=MZaf_9IZCrc
+ * Quick Sort is an example of divide and concur
+ * We chose a pivot in the array, and compare each element with it
+ * We have a second pointer to point out where next position should the pivot be.
+ * If i-th element is smaller than pivot, we increment the second pointer,
+ * and swap the i-th element and ltp_idx-th element to make sure the smaller element 
+ * is always on the left side
+ */
+
+int c_MySorter::quick_sort_partition(std::vector<int>& _vec, int low, int high)
+{
+    int pivot_val = _vec[high]; // read the pivot value
+    int ltp_idx   = low - 1;   // larger_than_pivot
+
+    for (int i = low; i < high; i++)
+    {
+        if (_vec[i] < pivot_val) {
+            ltp_idx++;
+            swap(&_vec[i], &_vec[ltp_idx]);
+        }
+    }
+    swap(&_vec[high],&_vec[ltp_idx+1]);
+
+    return (ltp_idx+1);
+}
+
+void c_MySorter::quick_sort_recursion(std::vector<int>& _vec, int low, int high)
+{
+    if (low < high)
+    {
+        int pivot_idx = quick_sort_partition(_vec, low, high);
+
+        quick_sort_recursion(_vec, low, pivot_idx-1);
+        quick_sort_recursion(_vec, pivot_idx+1, high);
+    }
+    // stops when low == high
+}
+
 void c_MySorter::quick_sort()
 {
-    
+    quick_sort_recursion( input_vec, 0, get_vec_size()-1 );
+    output_vec = input_vec;
 }

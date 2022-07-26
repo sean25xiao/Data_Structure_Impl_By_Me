@@ -17,8 +17,14 @@ public:
     void print_out_vec() const;
     std::vector<int>::size_type get_vec_size() const { return input_vec.size(); };
 
+    void swap(int* _pa, int* _pb);
+
     void bubble_sort();
+
+    int  quick_sort_partition(std::vector<int>& _vec, int low, int high);
+    void quick_sort_recursion(std::vector<int>& _vec, int low, int high);
     void quick_sort();
+    
     void merge_sort();
 
     void reset();
