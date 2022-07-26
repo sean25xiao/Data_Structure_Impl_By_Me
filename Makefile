@@ -24,6 +24,14 @@ test-binary_tree:
 	g++ -Werror -std=c++17 ./obj/binary_tree_test.o ./obj/binary_tree.o -o ./obj/binary_tree
 	./obj/binary_tree
 
+.PHONY: test-sorter
+test-sorter:
+	mkdir -p ./obj
+	g++ -Werror -std=c++17 -c ./algo_src/sorter.cpp -o ./obj/sorter.o
+	g++ -Werror -std=c++17 -c ./tests/sorter_test.cpp -o ./obj/sorter_test.o
+	g++ -Werror -std=c++17 ./obj/sorter_test.o ./obj/sorter.o -o ./obj/sorter
+	./obj/sorter
+
 .PHONY: clean
 clean:
 	rm -rf ./obj *.log *.o *.out
