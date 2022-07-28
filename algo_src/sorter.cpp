@@ -109,3 +109,104 @@ void c_MySorter::quick_sort()
     quick_sort_recursion( input_vec, 0, get_vec_size()-1 );
     output_vec = input_vec;
 }
+
+//std::vector<int>
+void c_MySorter::merge_sort_merge(
+    std::vector<int>& _vec, 
+    int low, int mid, int high)
+{
+    int sa1 = low;
+    int sa2 = mid + 1;
+    int n1 = mid - low;
+    int n2 = high - (mid + 1);
+    std::vector<int> left_vec;
+    std::vector<int> right_vec;
+    //tmp_out.resize(high+1);
+
+    for (int i = 0; i <= (mid-low); i++)
+        left_vec.push_back(_vec[low+i]);
+    for (int i = 0; i <= (high-(mid+1)); i++)
+        right_vec.push_back(_vec[mid+1+i]);
+
+    cout << "Starting merging ...." << endl;
+    for (auto &e : left_vec)
+        cout << e << ", ";
+    cout << endl;
+    for (auto &e : right_vec)
+        cout << e << ", ";
+    cout << endl;
+
+    /*int idx = 0;
+    while ( (sa1 <= mid) || (sa2 <= high) )
+    {
+        if (_vec[sa1] < _vec[sa2]) {
+            tmp_out[idx] = _vec[sa1];
+            sa1++;
+        } else {
+            tmp_out[idx] = _vec[sa2];
+            sa2++;
+        }
+        idx++;
+    } */
+
+    int l_idx = 0, r_idx = 0, res_idx = low;
+    puts("here 0\n");
+    while ( (l_idx <= n1) && (r_idx <= n2))
+    {
+        if (left_vec[l_idx] < right_vec[r_idx]) {
+            _vec[res_idx] = left_vec[l_idx];
+            l_idx++;
+        } else {
+            _vec[res_idx] = right_vec[r_idx];
+            r_idx++;
+        }
+        res_idx++;
+    }
+    puts("here 1\n");
+
+    while (l_idx <= (mid-low)) {  // TODO : change to n1 and n2
+        _vec[res_idx] = left_vec[l_idx];
+        l_idx++;
+        res_idx++;
+    }
+
+    while (r_idx <= (high-(mid+1))) {
+        _vec[res_idx] = right_vec[r_idx];
+        r_idx++;
+        res_idx++;
+    }
+    //for (auto &e: tmp_out) cout << e << "  ";
+    //out << endl;
+
+    //return tmp_out;
+}
+
+//std::vector<int>
+void c_MySorter::merge_sort_divide(std::vector<int>& _vec, int low, int high)
+{
+    if (low >= high) {
+        printf("low & high = %d, %d \n", low, high);
+        return;
+    }
+
+    int mid = (low + high) / 2;
+    printf("mid = (%d + %d) / 2 = %d\n", low, high, mid);
+    for (int i = low; i <= mid; i++)
+        cout << _vec[i] << ", ";
+    cout << endl;
+    for (int j = mid+1; j <= high; j++)
+        cout << _vec[j] << ", ";
+    cout << endl;
+    merge_sort_divide(_vec, low,   mid);
+    merge_sort_divide(_vec, mid+1, high);
+    
+    merge_sort_merge (_vec, low,   mid, high);
+}
+
+
+void c_MySorter::merge_sort()
+{
+    printf("hi merge sort\n");
+    merge_sort_divide(input_vec, 0, get_vec_size()-1);
+    output_vec = input_vec;
+}

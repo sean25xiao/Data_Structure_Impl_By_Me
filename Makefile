@@ -28,8 +28,9 @@ test-binary_tree:
 test-sorter:
 	mkdir -p ./obj
 	g++ -Werror -std=c++17 -c ./algo_src/sorter.cpp -o ./obj/sorter.o
-	g++ -Werror -std=c++17 -c ./tests/sorter_test.cpp -o ./obj/sorter_test.o
-	g++ -Werror -std=c++17 ./obj/sorter_test.o ./obj/sorter.o -o ./obj/sorter
+	#g++ -Werror -std=c++17 -c ./tests/sorter_test.cpp -o ./obj/sorter_test.o
+	g++ -Werror -std=c++17 -c ./tests/sorter_test.cpp -o ./obj/sorter_test.o -I${HOME}/gtest/gtest-build/_install/include -L${HOME}/gtest/gtest-build/_install/lib -lgtest -lpthread 
+	g++ -Werror -std=c++17 ./obj/sorter_test.o ./obj/sorter.o -o ./obj/sorter -I${HOME}/gtest/gtest-build/_install/include -L${HOME}/gtest/gtest-build/_install/lib -lgtest -lpthread 
 	./obj/sorter
 
 .PHONY: clean
