@@ -7,74 +7,313 @@
 
 using namespace std;
 
+// ======== Tests for Bubble Sort ========
+
+TEST(BubbleSortTest, posSmallNum)
+{
+    c_MySorter ms;
+    for (auto &v : test_posSmallNum) {
+        ms.set_inp_vec(v);
+        ms.bubble_sort();
+        std::sort(v.begin(), v.end());
+        EXPECT_EQ(v, ms.get_out_vec());
+        ms.reset();
+    }
+}
+
+TEST(BubbleSortTest, posLargeNum)
+{
+    c_MySorter ms;
+    for (auto &v : test_posLargeNum) {
+        ms.set_inp_vec(v);
+        ms.bubble_sort();
+        std::sort(v.begin(), v.end());
+        EXPECT_EQ(v, ms.get_out_vec());
+        ms.reset();
+    }
+}
+
+TEST(BubbleSortTest, negSmallNum)
+{
+    c_MySorter ms;
+    for (auto &v : test_negSmallNum) {
+        ms.set_inp_vec(v);
+        ms.bubble_sort();
+        std::sort(v.begin(), v.end());
+        EXPECT_EQ(v, ms.get_out_vec());
+        ms.reset();
+    }
+}
+
+TEST(BubbleSortTest, negLargeNum)
+{
+    c_MySorter ms;
+    for (auto &v : test_negLargeNum) {
+        ms.set_inp_vec(v);
+        ms.bubble_sort();
+        std::sort(v.begin(), v.end());
+        EXPECT_EQ(v, ms.get_out_vec());
+        ms.reset();
+    }
+}
+
+TEST(BubbleSortTest, allSame)
+{
+    c_MySorter ms;
+    for (auto &v : test_allSame) {
+        ms.set_inp_vec(v);
+        ms.bubble_sort();
+        std::sort(v.begin(), v.end());
+        EXPECT_EQ(v, ms.get_out_vec());
+        ms.reset();
+    }
+}
+
+TEST(BubbleSortTest, sortedNum)
+{
+    c_MySorter ms;
+    for (auto &v : test_sortedNum) {
+        ms.set_inp_vec(v);
+        ms.bubble_sort();
+        std::sort(v.begin(), v.end());
+        EXPECT_EQ(v, ms.get_out_vec());
+        ms.reset();
+    }
+}
+
+TEST(BubbleSortTest, extremeNum)
+{
+    c_MySorter ms;
+    for (auto &v : test_extremeNum) {
+        ms.set_inp_vec(v);
+        ms.bubble_sort();
+        std::sort(v.begin(), v.end());
+        EXPECT_EQ(v, ms.get_out_vec());
+        ms.reset();
+    }
+}
+
+TEST(BubbleSortTest, stressTest)
+{
+    c_MySorter ms;
+    create_stressVec();
+    for (auto &v : test_stressVec) {
+        ms.set_inp_vec(v);
+        ms.bubble_sort();
+        std::sort(v.begin(), v.end());
+        EXPECT_EQ(v, ms.get_out_vec());
+        ms.reset();
+    }
+}
+
+// ======== End of Tests for Bubble Sort ========
+
+
+// ======== Tests for Quick Sort ========
+
+TEST(QuickSortTest, posSmallNum)
+{
+    c_MySorter ms;
+    for (auto &v : test_posSmallNum) {
+        ms.set_inp_vec(v);
+        ms.quick_sort();
+        std::sort(v.begin(), v.end());
+        EXPECT_EQ(v, ms.get_out_vec());
+        ms.reset();
+    }
+}
+
+TEST(QuickSortTest, posLargeNum)
+{
+    c_MySorter ms;
+    for (auto &v : test_posLargeNum) {
+        ms.set_inp_vec(v);
+        ms.quick_sort();
+        std::sort(v.begin(), v.end());
+        EXPECT_EQ(v, ms.get_out_vec());
+        ms.reset();
+    }
+}
+
+TEST(QuickSortTest, negSmallNum)
+{
+    c_MySorter ms;
+    for (auto &v : test_negSmallNum) {
+        ms.set_inp_vec(v);
+        ms.quick_sort();
+        std::sort(v.begin(), v.end());
+        EXPECT_EQ(v, ms.get_out_vec());
+        ms.reset();
+    }
+}
+
+TEST(QuickSortTest, negLargeNum)
+{
+    c_MySorter ms;
+    for (auto &v : test_negLargeNum) {
+        ms.set_inp_vec(v);
+        ms.quick_sort();
+        std::sort(v.begin(), v.end());
+        EXPECT_EQ(v, ms.get_out_vec());
+        ms.reset();
+    }
+}
+
+TEST(QuickSortTest, allSame)
+{
+    c_MySorter ms;
+    for (auto &v : test_allSame) {
+        ms.set_inp_vec(v);
+        ms.quick_sort();
+        std::sort(v.begin(), v.end());
+        EXPECT_EQ(v, ms.get_out_vec());
+        ms.reset();
+    }
+}
+
+TEST(QuickSortTest, sortedNum)
+{
+    c_MySorter ms;
+    for (auto &v : test_sortedNum) {
+        ms.set_inp_vec(v);
+        ms.quick_sort();
+        std::sort(v.begin(), v.end());
+        EXPECT_EQ(v, ms.get_out_vec());
+        ms.reset();
+    }
+}
+
+TEST(QuickSortTest, extremeNum)
+{
+    c_MySorter ms;
+    for (auto &v : test_extremeNum) {
+        ms.set_inp_vec(v);
+        ms.quick_sort();
+        std::sort(v.begin(), v.end());
+        EXPECT_EQ(v, ms.get_out_vec());
+        ms.reset();
+    }
+}
+
+TEST(QuickSortTest, stressTest)
+{
+    c_MySorter ms;
+    create_stressVec();
+    for (auto &v : test_stressVec) {
+        ms.set_inp_vec(v);
+        ms.quick_sort();
+        std::sort(v.begin(), v.end());
+        EXPECT_EQ(v, ms.get_out_vec());
+        ms.reset();
+    }
+}
+
+// ======== End of Tests for Quick Sort ========
+
+// ======== Tests for Merge Sort ========
+
+TEST(MergeSortTest, posSmallNum)
+{
+    c_MySorter ms;
+    for (auto &v : test_posSmallNum) {
+        ms.set_inp_vec(v);
+        ms.merge_sort();
+        std::sort(v.begin(), v.end());
+        EXPECT_EQ(v, ms.get_out_vec());
+        ms.reset();
+    }
+}
+
+TEST(MergeSortTest, posLargeNum)
+{
+    c_MySorter ms;
+    for (auto &v : test_posLargeNum) {
+        ms.set_inp_vec(v);
+        ms.merge_sort();
+        std::sort(v.begin(), v.end());
+        EXPECT_EQ(v, ms.get_out_vec());
+        ms.reset();
+    }
+}
+
+TEST(MergeSortTest, negSmallNum)
+{
+    c_MySorter ms;
+    for (auto &v : test_negSmallNum) {
+        ms.set_inp_vec(v);
+        ms.merge_sort();
+        std::sort(v.begin(), v.end());
+        EXPECT_EQ(v, ms.get_out_vec());
+        ms.reset();
+    }
+}
+
+TEST(MergeSortTest, negLargeNum)
+{
+    c_MySorter ms;
+    for (auto &v : test_negLargeNum) {
+        ms.set_inp_vec(v);
+        ms.merge_sort();
+        std::sort(v.begin(), v.end());
+        EXPECT_EQ(v, ms.get_out_vec());
+        ms.reset();
+    }
+}
+
+TEST(MergeSortTest, allSame)
+{
+    c_MySorter ms;
+    for (auto &v : test_allSame) {
+        ms.set_inp_vec(v);
+        ms.merge_sort();
+        std::sort(v.begin(), v.end());
+        EXPECT_EQ(v, ms.get_out_vec());
+        ms.reset();
+    }
+}
+
+TEST(MergeSortTest, sortedNum)
+{
+    c_MySorter ms;
+    for (auto &v : test_sortedNum) {
+        ms.set_inp_vec(v);
+        ms.merge_sort();
+        std::sort(v.begin(), v.end());
+        EXPECT_EQ(v, ms.get_out_vec());
+        ms.reset();
+    }
+}
+
+TEST(MergeSortTest, extremeNum)
+{
+    c_MySorter ms;
+    for (auto &v : test_extremeNum) {
+        ms.set_inp_vec(v);
+        ms.merge_sort();
+        std::sort(v.begin(), v.end());
+        EXPECT_EQ(v, ms.get_out_vec());
+        ms.reset();
+    }
+}
+
+TEST(MergeSortTest, stressTest)
+{
+    c_MySorter ms;
+    create_stressVec();
+    for (auto &v : test_stressVec) {
+        ms.set_inp_vec(v);
+        ms.merge_sort();
+        std::sort(v.begin(), v.end());
+        EXPECT_EQ(v, ms.get_out_vec());
+        ms.reset();
+    }
+}
+
+// ======== End of Tests for Merge Sort ========
+
+
+// Test Drive
 int main (int argc, char **argv) {
-  cout << "This is sorter test program" << endl;
-
-  c_MySorter ms;
-
-  cout << "======== Bubble Sort Test 1 ========" << endl;
-  std::vector<int> test_vec1 = {0,2,4,5,8,9,1,0,7,3};
-  ms.set_inp_vec(test_vec1);
-  ms.print_inp_vec();
-  ms.bubble_sort();
-  ms.print_out_vec();
-
-  cout << "======== Bubble Sort Test 2 ========" << endl;
-  std::vector<int> test_vec2 = {354,12,4,1235,41,5,-52,-12,-4,0};
-  ms.set_inp_vec(test_vec2);
-  ms.print_inp_vec();
-  ms.bubble_sort();
-  ms.print_out_vec();
-
-  cout << "======== Bubble Sort Test 3 ========" << endl;
-  std::vector<int> test_vec3 = {-1,0,-1,0,-1,-1,-2,0,1,0,1,-1,-2,3,2,0,1,-1};
-  ms.set_inp_vec(test_vec3);
-  ms.print_inp_vec();
-  ms.bubble_sort();
-  ms.print_out_vec();
-
-  cout << "======== Quick Sort Test 1 ========" << endl;
-  std::vector<int> test_vec4 = {0,2,4,5,8,9,1,0,7,3};
-  ms.set_inp_vec(test_vec4);
-  ms.print_inp_vec();
-  ms.quick_sort();
-  ms.print_out_vec();
-
-  cout << "======== Quick Sort Test 2 ========" << endl;
-  std::vector<int> test_vec5 = {354,12,4,1235,41,5,-52,-12,-4,0};
-  ms.set_inp_vec(test_vec5);
-  ms.print_inp_vec();
-  ms.quick_sort();
-  ms.print_out_vec();
-
-  cout << "======== Quick Sort Test 3 ========" << endl;
-  std::vector<int> test_vec6 = {-1,0,-1,0,-1,-1,-2,0,1,0,1,-1,-2,3,2,0,1,-1};
-  ms.set_inp_vec(test_vec6);
-  ms.print_inp_vec();
-  ms.quick_sort();
-  ms.print_out_vec();
-
-  cout << "======== Merge Sort Test 1 ========" << endl;
-  std::vector<int> test_vec7 = {6,5,12,10,9,1};
-  ms.set_inp_vec(test_vec7);
-  ms.print_inp_vec();
-  ms.merge_sort();
-  ms.print_out_vec();
-
-  cout << "======== Merge Sort Test 2 ========" << endl;
-  std::vector<int> test_vec8 = {124,123,455,13,45,2532,53,0,-14,-35,999,0};
-  ms.set_inp_vec(test_vec8);
-  ms.print_inp_vec();
-  ms.merge_sort();
-  ms.print_out_vec();
-
-  cout << "======== Merge Sort Test 3 ========" << endl;
-  std::vector<int> test_vec9 = {0,0,0,0,1,-1,0,-1,0,2,-3,-1,-4,0,2,1,2,3,1,2,0,1};
-  ms.set_inp_vec(test_vec9);
-  ms.print_inp_vec();
-  ms.merge_sort();
-  ms.print_out_vec();
-
   testing::InitGoogleTest(&argc, argv);
   return RUN_ALL_TESTS();
 }
