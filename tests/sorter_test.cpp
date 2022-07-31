@@ -312,8 +312,111 @@ TEST(MergeSortTest, stressTest)
 // ======== End of Tests for Merge Sort ========
 
 
+// ======== Tests for Selection Sort ========
+
+TEST(SelectionSortTest, posSmallNum)
+{
+    c_MySorter ms;
+    for (auto &v : test_posSmallNum) {
+        ms.set_inp_vec(v);
+        ms.selection_sort();
+        std::sort(v.begin(), v.end());
+        EXPECT_EQ(v, ms.get_out_vec());
+        ms.reset();
+    }
+}
+
+TEST(SelectionSortTest, posLargeNum)
+{
+    c_MySorter ms;
+    for (auto &v : test_posLargeNum) {
+        ms.set_inp_vec(v);
+        ms.selection_sort();
+        std::sort(v.begin(), v.end());
+        EXPECT_EQ(v, ms.get_out_vec());
+        ms.reset();
+    }
+}
+
+TEST(SelectionSortTest, negSmallNum)
+{
+    c_MySorter ms;
+    for (auto &v : test_negSmallNum) {
+        ms.set_inp_vec(v);
+        ms.selection_sort();
+        std::sort(v.begin(), v.end());
+        EXPECT_EQ(v, ms.get_out_vec());
+        ms.reset();
+    }
+}
+
+TEST(SelectionSortTest, negLargeNum)
+{
+    c_MySorter ms;
+    for (auto &v : test_negLargeNum) {
+        ms.set_inp_vec(v);
+        ms.selection_sort();
+        std::sort(v.begin(), v.end());
+        EXPECT_EQ(v, ms.get_out_vec());
+        ms.reset();
+    }
+}
+
+TEST(SelectionSortTest, allSame)
+{
+    c_MySorter ms;
+    for (auto &v : test_allSame) {
+        ms.set_inp_vec(v);
+        ms.selection_sort();
+        std::sort(v.begin(), v.end());
+        EXPECT_EQ(v, ms.get_out_vec());
+        ms.reset();
+    }
+}
+
+TEST(SelectionSortTest, sortedNum)
+{
+    c_MySorter ms;
+    for (auto &v : test_sortedNum) {
+        ms.set_inp_vec(v);
+        ms.selection_sort();
+        std::sort(v.begin(), v.end());
+        EXPECT_EQ(v, ms.get_out_vec());
+        ms.reset();
+    }
+}
+
+TEST(SelectionSortTest, extremeNum)
+{
+    c_MySorter ms;
+    for (auto &v : test_extremeNum) {
+        ms.set_inp_vec(v);
+        ms.selection_sort();
+        std::sort(v.begin(), v.end());
+        EXPECT_EQ(v, ms.get_out_vec());
+        ms.reset();
+    }
+}
+
+TEST(SelectionSortTest, stressTest)
+{
+    c_MySorter ms;
+    create_stressVec();
+    for (auto &v : test_stressVec) {
+        ms.set_inp_vec(v);
+        ms.selection_sort();
+        std::sort(v.begin(), v.end());
+        EXPECT_EQ(v, ms.get_out_vec());
+        ms.reset();
+    }
+}
+
+// ======== End of Tests for Selection Sort ========
+
+
 // Test Drive
 int main (int argc, char **argv) {
   testing::InitGoogleTest(&argc, argv);
+  //testing::GTEST_FLAG(filter) = "SelectionSortTest*";
   return RUN_ALL_TESTS();
 }

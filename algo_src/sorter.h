@@ -30,6 +30,8 @@ public:
     void merge_sort_divide(std::vector<int>& _vec, int low, int high);
     void merge_sort();
 
+    void selection_sort();
+
     void reset();
 };
 

@@ -173,3 +173,23 @@ void c_MySorter::merge_sort()
     merge_sort_divide(input_vec, 0, get_vec_size()-1);
     output_vec = input_vec;
 }
+
+/*
+ * https://www.programiz.com/dsa/selection-sort
+ * Selection Sort selects the smallest element from an unsorted list in
+ * each iteration and places that element at the beginning of the unsorted list
+ */
+void c_MySorter::selection_sort()
+{
+    for (int m = 0; m < (get_vec_size()-1); m++)
+    {
+        int min_idx = m;
+        for (int i = m; i < (get_vec_size()-1); i++)
+        {
+            if (input_vec[min_idx] > input_vec[i+1])
+                min_idx = i + 1;
+        }
+        swap(&input_vec[min_idx], &input_vec[m]);
+    }
+    output_vec = input_vec;
+}
