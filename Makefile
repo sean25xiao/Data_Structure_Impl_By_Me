@@ -1,9 +1,9 @@
 all: test-linked_lists test-binary_tree
 
-GTEST_FILE=${HOME}/gtest/gtest-build/_install/include
-GTEST_LIB=${HOME}/gtest/gtest-build/_install/lib
-GTEST_FLAG+=-lgtest
-GTEST_FLAG+=-lpthread
+GTEST_INCLUDE := /usr/local/include/
+GTEST_LIB  := /usr/local/lib/
+GTEST_FLAG := -lgtest
+GTEST_FLAG += -lpthread
 
 .PHONY: test-stack
 test-stack:
@@ -33,9 +33,8 @@ test-binary_tree:
 test-sorter:
 	mkdir -p ./obj
 	g++ -Werror -std=c++17 -c ./algo_src/sorter.cpp -o ./obj/sorter.o
-	#g++ -Werror -std=c++17 -c ./tests/sorter_test.cpp -o ./obj/sorter_test.o
-	g++ -Werror -std=c++17 -c ./tests/sorter_test.cpp -o ./obj/sorter_test.o -I${GTEST_FILE} -L${GTEST_LIB} ${GTEST_FLAG}
-	g++ -Werror -std=c++17 ./obj/sorter_test.o ./obj/sorter.o -o ./obj/sorter -I${GTEST_FILE} -L${GTEST_LIB} ${GTEST_FLAG}
+	g++ -Werror -std=c++17 -c ./tests/sorter_test.cpp -o ./obj/sorter_test.o -I${GTEST_INCLUDE}
+	g++ -Werror -std=c++17 ./obj/sorter_test.o ./obj/sorter.o -o ./obj/sorter -I${GTEST_INCLUDE} -L${GTEST_LIB} ${GTEST_FLAG}
 	./obj/sorter
 
 .PHONY: clean
