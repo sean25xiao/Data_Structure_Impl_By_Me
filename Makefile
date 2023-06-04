@@ -1,4 +1,4 @@
-all: test-linked_lists test-binary_tree
+all: test-linked_lists test-binary_tree test-sorter test-hash_table
 
 GTEST_INCLUDE := /usr/local/include/
 GTEST_LIB  := /usr/local/lib/
@@ -36,6 +36,14 @@ test-sorter:
 	g++ -Werror -std=c++17 -c ./tests/sorter_test.cpp -o ./obj/sorter_test.o -I${GTEST_INCLUDE}
 	g++ -Werror -std=c++17 ./obj/sorter_test.o ./obj/sorter.o -o ./obj/sorter -I${GTEST_INCLUDE} -L${GTEST_LIB} ${GTEST_FLAG}
 	./obj/sorter
+
+.PHONY: test-hash_table
+test-hash_table:
+	mkdir -p ./obj
+	g++ -Werror -std=c++17 -c ./ds_src/hash_table.cpp -o ./obj/hash_table.o
+	g++ -Werror -std=c++17 -c ./tests/hash_table_test.cpp -o ./obj/hash_table_test.o -I${GTEST_INCLUDE}
+	g++ -Werror -std=c++17 ./obj/hash_table_test.o ./obj/hash_table.o -o ./obj/hash_table -I${GTEST_INCLUDE} -L${GTEST_LIB} ${GTEST_FLAG}
+	./obj/hash_table
 
 .PHONY: clean
 clean:
