@@ -193,3 +193,20 @@ void c_MySorter::selection_sort()
     }
     output_vec = input_vec;
 }
+
+void c_MySorter::insert_sort()
+{
+    // Start from second element; Assume first element is sorted
+    for (int k = 1; k <= (get_vec_size()-1); k++)
+    {
+        //int key = input_vec[k];
+        int float_k = k;
+        do {
+            int key = input_vec[float_k];
+            if (key < input_vec[float_k-1])
+                swap(&input_vec[float_k], &input_vec[float_k-1]);
+            float_k--;
+        } while ( float_k > 0 );
+    }
+    output_vec = input_vec;
+}

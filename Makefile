@@ -29,6 +29,14 @@ test-binary_tree:
 	g++ -Werror -std=c++17 ./obj/binary_tree_test.o ./obj/binary_tree.o -o ./obj/binary_tree
 	./obj/binary_tree
 
+.PHONY: test-graph
+test-graph:
+	mkdir -p ./obj
+	g++ -Werror -std=c++17 -c ./ds_src/graph.cpp -o ./obj/graph.o
+	g++ -Werror -std=c++17 -c ./tests/graph_test.cpp -o ./obj/graph_test.o -I${GTEST_FILE} -L${GTEST_LIB} ${GTEST_FLAG}
+	g++ -Werror -std=c++17 ./obj/graph_test.o ./obj/graph.o -o ./obj/graph -I${GTEST_FILE} -L${GTEST_LIB} ${GTEST_FLAG}
+	./obj/graph
+
 .PHONY: test-sorter
 test-sorter:
 	mkdir -p ./obj

@@ -32,6 +32,8 @@ public:
 
     void selection_sort();
 
+    void insert_sort();
+
     void reset();
 };
 
