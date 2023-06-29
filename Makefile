@@ -5,6 +5,7 @@ GTEST_LIB  := /usr/local/lib/
 GTEST_FLAG := -lgtest
 GTEST_FLAG += -lpthread
 
+
 .PHONY: test-stack
 test-stack:
 	mkdir -p ./obj
